@@ -14,6 +14,13 @@ function App() {
   const backspace= ()=>{
     setResult(result.slice(0,  - 1)); // or result.length -1
   }
+  const calc=()=>{
+    try {
+      setResult(eval(result).tostring())
+    } catch (error) {
+      setResult("Error")
+    }
+  }
 
   return (
     <div className="container">
@@ -39,7 +46,7 @@ function App() {
       <button name='+' onClick={handleClick} className='highlight'>+</button>
       <button name='0' onClick={handleClick}>0</button>
       <button name='.' onClick={handleClick}>.</button>
-      <button onClick={handleClick} id='result' className='highlight'>=</button>
+      <button onClick={calc} id='result' className='highlight'>=</button>
       </div>
 
     </div>
