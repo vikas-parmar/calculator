@@ -1,27 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-*{
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-}
-
-body{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-}
-
 .container{
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     margin: 0 auto;
-    width: 255px;
+    width: 300px;
     text-align: center;
-    border: 10px solid  #242424; 
+    border: 10px solid  #a8a8a8; 
     border-radius: 5px;
-    background-color:  #242424;   
+    background-color:  #bbbbbb;
+    box-shadow: 0px 0px 100px #000000;   
 }
 
 .keypad{
@@ -33,7 +21,7 @@ body{
 input[type="text"] {
     height: 75px;
     width: 249px;
-    background-color: #242424;
+    background-color:#bbbbbb;
     border: 0px;
     color: #fff;
     text-align: right;
