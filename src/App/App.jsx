@@ -1,54 +1,53 @@
 import { useState } from 'react';
 import './App.css';
+import Buttons from '../Components/Buttons';
+import Output from '../Components/Output';
 
 const App = () => {
-  const [result, setResult] = useState("");
+  const [input, setInput] = useState("");
+  const [answer, setAnswer] = useState("");
 
-  const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
+  const handleInput = (e) => {
+    let val = e.target.name;
+    let str = input + val;
+    if (str.length > 14) return;
+    if (answer !== "") {
+      setInput(answer + val);
+      setAnswer("");
+    } else setInput(str);
   };
 
   const clear = () => {
-    setResult("");
+    setAnswer("");
+    setInput("");
   }
   const backspace = () => {
-    setResult(result.slice(0, - 1)); // or result.length -1
+    if (answer !== "") {
+      setInput(answer.toString().slice(0, - 1));
+      setAnswer("");
+    } else setInput((prev) => prev.slice(0, -1));
   }
   const calc = () => {
     try {
-      setResult(eval(result))
+      setAnswer(eval(input))
     } catch (error) {
-      setResult("error")
+      setAnswer("Error")
     }
   }
 
   return (
     <div className="container">
-      <form>
-        <input type="text" value={result} />
-      </form>
-
-      <div className='keypad'>
-        <button onClick={clear} id='clear' className='highlight'>AC</button>
-        <button onClick={backspace} id='backspace' className='highlight'>C</button>
-        <button name='/' onClick={handleClick} className='highlight'>&divide;</button>
-        <button name='7' onClick={handleClick}>7</button>
-        <button name='8' onClick={handleClick}>8</button>
-        <button name='9' onClick={handleClick}>9</button>
-        <button name='*' onClick={handleClick} className='highlight'>&times;</button>
-        <button name='4' onClick={handleClick}>4</button>
-        <button name='5' onClick={handleClick}>5</button>
-        <button name='6' onClick={handleClick}>6</button>
-        <button name='-' onClick={handleClick} className='highlight'>&ndash;</button>
-        <button name='1' onClick={handleClick}>1</button>
-        <button name='2' onClick={handleClick}>2</button>
-        <button name='3' onClick={handleClick}>3</button>
-        <button name='+' onClick={handleClick} className='highlight'>+</button>
-        <button name='0' onClick={handleClick}>0</button>
-        <button name='.' onClick={handleClick}>.</button>
-        <button onClick={calc} id='result' className='highlight'>=</button>
-      </div>
-
+      <Output
+        input={input}
+        setInput={setInput}
+        answer={answer}
+      />
+      <Buttons
+        handleClick={handleInput}
+        clear={clear}
+        backspace={backspace}
+        calc={calc}
+      />
     </div>
   )
 }
