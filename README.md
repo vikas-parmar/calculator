@@ -33,6 +33,16 @@ npm install
 ```
 npm run dev
 ```
+## What I learn from this project
+- React Concepts : Components, props, state managment and event handling.
+- Mathematical logic: Learn how to implement mathematical logic, including basic and advanced operations, error handling, and input validation.
+- UI design: Learn how to design and implement a responsive and accessible user interface that meets modern web standards.
+- Project management: Learn how to plan, organize, and manage a project from start to finish.
+
+## Optimizations
+When I improve this repository, 
+- I am going to add more advanced oprations like square root, exponential, and trigometric functions.
+- In adition, I will include history tracking.
 
 ## Authors
 - GitHub: [Vikas Parmar](https://github.com/vikas-parmar)
